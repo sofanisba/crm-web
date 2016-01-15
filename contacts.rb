@@ -33,14 +33,33 @@ class Contact
   def self.all
     return @@contacts
   end
-
+  #
+  # def self.get(id_num)
+  #   @@contacts.each do |contact|
+  #     if id_num == contact.id
+  #       puts "#{contact.id} #{contact.full_name} #{contact.email} #{contact.note}"
+  #     end
+  #   end
+  # end
+  #
+  # def update
+  #
   def self.get(id_num)
-    @@contacts.each do |contact|
-      if id_num == contact.id
-        puts "#{contact.id} #{contact.full_name} #{contact.email} #{contact.note}"
-      end
+    @@contacts.find { |contact| contact.id == id_num}
+  end
+
+  def update(attribute, value)
+    if attribute == "first_name"
+      @first_name = value
+    elsif attribute == "last_name"
+      @last_name = value
+    elsif attribute == "email"
+      @email = value
+    else
+      @note = value
     end
   end
+
 
   def self.search_by_attribute(search)
     @@contacts.each do |contact|

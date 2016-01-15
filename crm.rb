@@ -26,14 +26,14 @@ end
 
   def choose_option(choice)
     case choice
-    when 1 then add_contact
-    when 2 then modify_contact
-    when 3 then display_all
-    when 4 then search_contact
-    when 5 then delete_contact
-    when 6
-      puts "Thanks for playing"
-      exit
+      when 1 then add_contact
+      when 2 then modify_contact
+      when 3 then display_all
+      when 4 then search_contact
+      when 5 then delete_contact
+      when 6
+        puts "Thanks for playing"
+        exit
     else
        puts "nope"
     end#case choice
@@ -52,22 +52,61 @@ end
     new_contact = Contact.create(first_name, last_name, email: email, note: note)
   end #add_contact
 
-#2. Modify Contact
-  def modify_contact
-    #ask for ID
-    puts "Enter contact ID"
-    id_num = gets.chomp.to_i
-    #find contact by ID
-    Contact.get(id_num)
-  end
+#   def print_modify_menu
+#     puts "What would you like to change?"
+#     puts "1: First Name"
+#     puts "2: Last Name"
+#     puts "3: Email address"
+#     puts "4: Note"
+#     puts "5: Go back"
+#   end
+#
+#   def modify_menu
+#     option = 0
+#     while true
+#       print_modify_menu
+#       option = gets.chomp.to_i
+#       choose_option(option)
+#     end #while
+#   end
+#
+# #2. Modify Contact
+#   def modify_contact
+#     #ask for ID
+#     puts "Enter contact ID"
+#     id_num = gets.chomp.to_i
+#     #find contact by ID
+#     Contact.get(id_num)
+# #prompt user for attribute to edit
+#         case choice
+#         when 1 then Contact.update
+#             when 2 then
+#             when 3 then
+#             when 4
+#             when 5
+#                 exit
+# else
+#    puts "nope"
+# end#case choice
+# #change attribute
+#
+# #print new
+#   end
 
+def modify_contact
+  puts "what id to mod"
+  id_num = gets.chomp.to_i
 
-#prompt user for attribute to edit
+  modify_contact = Contact.get(id_num)
 
-#change attribute
+  puts "what do you wanna mod"
+  mod = gets.chomp
+  puts "what new"
+  mod_new = gets.chomp
 
-#print new
+  modify_contact.update(mod, mod_new)
 
+end
 
 #3.  Display all contacts
   def display_all
