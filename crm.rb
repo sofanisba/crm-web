@@ -1,9 +1,10 @@
 require_relative 'contacts.rb'
 
 class CRM
-  # def initialize(name)
-  #   @name = name
-  # end
+  def self.run
+      crm = CRM.new
+      crm.main_menu
+    end
 
   def print_main_menu
     puts "1. Add a contact"
@@ -68,5 +69,4 @@ end
   end
 end #CRM class
 
-crm = CRM.new
-crm.main_menu
+CRM.run
