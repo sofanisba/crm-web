@@ -25,9 +25,6 @@ class Contact
       new_contact
     end #self.create
 
-  def self.find(id)
-      @@contacts.find { |contact| contact.id == id}
-  end#self.find
 
   def self.search_by_attribute
     @@contacts.find { |name, value| full_name}
@@ -36,6 +33,16 @@ class Contact
   def self.all
     return @@contacts
   end
+
+  def self.search_by_attribute(search)
+    @@contacts.each do |contact|
+      if search == contact.first_name || contact.last_name || contact.id ||contact.options
+        puts "#{contact.id} #{contact.full_name} #{contact.email} #{contact.note}"
+      else
+        puts "no dice"
+      end#if
+    end#do
+  end #self.search_by_attribute
 
   def self.delete(user_id)
     @@contacts.delete_if { |contact| contact.id == user_id}

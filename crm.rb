@@ -4,7 +4,7 @@ class CRM
   def self.run
       crm = CRM.new
       crm.main_menu
-    end
+  end
 
   def print_main_menu
     puts "1. Add a contact"
@@ -30,7 +30,7 @@ end
     when 1 then add_contact
     when 2 then modify_contact
     when 3 then display_all
-    when 4 then search_by_attribute
+    when 4 then search_contact
     when 5 then display_attribute
     when 6 then delete_contact
     when 7
@@ -60,6 +60,17 @@ end
       puts "#{contact.id} #{contact.full_name} #{contact.email} #{contact.note}"
     end
   end
+
+#4 Search by attribute
+  def search_contact
+    puts "Whom do you seek?"
+    search = gets.chomp.to_s
+    Contact.search_by_attribute(search)
+  end
+
+#5. Display attribute
+  
+
 
 #6. Delete contact
   def delete_contact
