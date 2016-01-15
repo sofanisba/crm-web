@@ -11,9 +11,8 @@ class CRM
     puts "2. Modify a contact"
     puts "3. Display all contacts"
     puts "4. Search by attribute"
-    puts "5. Display contact attribute"
-    puts "6. Delete a contact"
-    puts "7. Exit"
+    puts "5. Delete a contact"
+    puts "6. Exit"
   end #print_main_menu
 
   def main_menu
@@ -31,9 +30,8 @@ end
     when 2 then modify_contact
     when 3 then display_all
     when 4 then search_contact
-    when 5 then display_attribute
-    when 6 then delete_contact
-    when 7
+    when 5 then delete_contact
+    when 6
       puts "Thanks for playing"
       exit
     else
@@ -54,6 +52,23 @@ end
     new_contact = Contact.create(first_name, last_name, email: email, note: note)
   end #add_contact
 
+#2. Modify Contact
+  def modify_contact
+    #ask for ID
+    puts "Enter contact ID"
+    id_num = gets.chomp.to_i
+    #find contact by ID
+    Contact.get(id_num)
+  end
+
+
+#prompt user for attribute to edit
+
+#change attribute
+
+#print new
+
+
 #3.  Display all contacts
   def display_all
     Contact.all.each do |contact|
@@ -68,11 +83,7 @@ end
     Contact.search_by_attribute(search)
   end
 
-#5. Display attribute
-  
-
-
-#6. Delete contact
+#5. Delete contact
   def delete_contact
     puts "Which contact by ID number?"
     user_id = gets.chomp.to_i

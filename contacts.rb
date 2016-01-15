@@ -34,6 +34,14 @@ class Contact
     return @@contacts
   end
 
+  def self.get(id_num)
+    @@contacts.each do |contact|
+      if id_num == contact.id
+        puts "#{contact.id} #{contact.full_name} #{contact.email} #{contact.note}"
+      end
+    end
+  end
+
   def self.search_by_attribute(search)
     @@contacts.each do |contact|
       if search == contact.first_name || contact.last_name || contact.id ||contact.options
