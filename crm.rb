@@ -52,61 +52,61 @@ end
     new_contact = Contact.create(first_name, last_name, email: email, note: note)
   end #add_contact
 
-#   def print_modify_menu
-#     puts "What would you like to change?"
-#     puts "1: First Name"
-#     puts "2: Last Name"
-#     puts "3: Email address"
-#     puts "4: Note"
-#     puts "5: Go back"
-#   end
+  def modify_contact
+    puts "Who do you want to modify (ID number)"
+    id_num = gets.chomp.to_i
+    contact = Contact.get(id_num)
+    puts "#{contact.id} #{contact.full_name} #{contact.email} #{contact.note}"
+
+    puts "What do you want to change?"
+    puts "1. First Name"
+    puts "2. Last Name"
+    puts "3. Email Address"
+    puts "4. Note"
+    puts "5. exit"
+
+    update_options = gets.chomp.to_i
+        case update_options
+        when 1
+          puts "New first name:"
+          contact.first_name = gets.chomp.to_s
+          puts "New first name = #{contact.first_name.capitalize}"
+        when 2
+          puts "New last name:"
+          contact.last_name = gets.chomp.to_s
+          puts "New first name = #{contact.last_name.capitalize}"
+        when 3
+          puts "New email address:"
+          contact.email = gets.chomp.to_s
+          puts "New email address = #{contact.email}"
+        when 4
+          puts "New note:"
+          contact.note = gets.chomp.to_s
+          puts "Note = #{contact.note}"
+        when 5
+          exit
+        else
+          puts "That's not an option, dummy"
+        end
+    end
+
+
+
+
+# def modify_contact
+#   puts "what id to mod"
+#   id_num = gets.chomp.to_i
 #
-#   def modify_menu
-#     option = 0
-#     while true
-#       print_modify_menu
-#       option = gets.chomp.to_i
-#       choose_option(option)
-#     end #while
-#   end
+#   modify_contact = Contact.get(id_num)
 #
-# #2. Modify Contact
-#   def modify_contact
-#     #ask for ID
-#     puts "Enter contact ID"
-#     id_num = gets.chomp.to_i
-#     #find contact by ID
-#     Contact.get(id_num)
-# #prompt user for attribute to edit
-#         case choice
-#         when 1 then Contact.update
-#             when 2 then
-#             when 3 then
-#             when 4
-#             when 5
-#                 exit
-# else
-#    puts "nope"
-# end#case choice
-# #change attribute
+#   puts "what do you wanna mod"
+#   mod = gets.chomp
+#   puts "what new"
+#   mod_new = gets.chomp
 #
-# #print new
-#   end
-
-def modify_contact
-  puts "what id to mod"
-  id_num = gets.chomp.to_i
-
-  modify_contact = Contact.get(id_num)
-
-  puts "what do you wanna mod"
-  mod = gets.chomp
-  puts "what new"
-  mod_new = gets.chomp
-
-  modify_contact.update(mod, mod_new)
-
-end
+#   modify_contact.update(mod, mod_new)
+#
+# end
 
 #3.  Display all contacts
   def display_all
@@ -118,8 +118,8 @@ end
 #4 Search by attribute
   def search_contact
     puts "Whom do you seek?"
-    search = gets.chomp.to_s
-    Contact.search_by_attribute(search)
+    value = gets.chomp.to_s
+    Contact.search_by_attribute(value)
   end
 
 #5. Delete contact

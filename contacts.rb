@@ -26,10 +26,6 @@ class Contact
     end #self.create
 
 
-  def self.search_by_attribute
-    @@contacts.find { |name, value| full_name}
-  end
-
   def self.all
     return @@contacts
   end
@@ -48,25 +44,45 @@ class Contact
     @@contacts.find { |contact| contact.id == id_num}
   end
 
-  def update(attribute, value)
-    if attribute == "first_name"
-      @first_name = value
-    elsif attribute == "last_name"
-      @last_name = value
-    elsif attribute == "email"
-      @email = value
+
+  def modify_menu(update_options)
+    case update_options
+    when 1 then first_name
+    when 2 then last_name
+    when 3 then email
+    when 4 then note
     else
-      @note = value
+      puts "That's not an option, dummy"
     end
   end
 
+  def update(update_contact)
+    case update_contact
+    when first_name then @first_name = update_contact
+    when last_name then @last_name = update_contact
+    when email then @email = update_contact
+    when note then @note = update_contact
+    end
+  end
+  
 
-  def self.search_by_attribute(search)
+  # def update(attribute, value)
+  #   if attribute == "first_name"
+  #     @first_name = value
+  #   elsif attribute == "last_name"
+  #     @last_name = value
+  #   elsif attribute == "email"
+  #     @email = value
+  #   else
+  #    @ note = value
+  #   end
+  # end
+
+
+  def self.search_by_attribute(value)
     @@contacts.each do |contact|
-      if search == contact.first_name || contact.last_name || contact.id ||contact.options
+      if contact.first_name == value || contact.last_name == value || contact.id == value ||contact.email == value ||contact.note == value
         puts "#{contact.id} #{contact.full_name} #{contact.email} #{contact.note}"
-      else
-        puts "no dice"
       end#if
     end#do
   end #self.search_by_attribute
