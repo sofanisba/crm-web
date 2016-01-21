@@ -1,5 +1,20 @@
 require 'sinatra'
+require_relative 'contact.rb'
 
 get '/' do
-  "Main Menu"
+  @crm_app_name = "Tamara's CRM"
+  erb :index
+end
+
+get '/contacts' do
+  Contact.create('Mark', 'Zuckerberg', 'mark@facebook.com', 'Swine')
+  Contact.create('Linus', 'Torvalds', 'linus@linux.com', 'genius')
+  Contact.create('Steve', 'Jobs', 'steve@apple.com', 'lucky turtleneck?')
+
+  erb :contacts
+end
+
+get '/contacts/new' do
+
+  erb: new_contact
 end
