@@ -60,7 +60,7 @@ class Contact
     @@id = 1
   end
 
-  def full_name!
+  def full_name
     # Add first name and last name together to get contact's full name
     "#{first_name.capitalize} #{last_name.capitalize}"
   end
