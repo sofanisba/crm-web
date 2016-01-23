@@ -68,5 +68,6 @@ a:visited {
 
 }
 footer {
-  clear: left
+  clear: left;
+  margin:30px;
 }
