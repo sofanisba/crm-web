@@ -4,7 +4,7 @@ class Contact
   # Attributes that are read-only
   attr_reader :id
   # Attributes that are read and write
-  attr_reader :first_name, :last_name, :email, :note
+  attr_accessor :first_name, :last_name, :email, :note
 
   # Contact class variables available:
   @@contacts = [] # <= Array containing all contacts
