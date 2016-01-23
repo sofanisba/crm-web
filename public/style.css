@@ -1,0 +1,72 @@
+html {
+  font-family: Courier ;
+  line-height: 1.5;
+  text-align: center;
+}
+body {
+  background-color: rgb(154, 208, 145);
+}
+
+h1 {
+  border-top: 5px solid gray;
+  border-radius: 20px;
+  background-color: black;
+  font-size: 30px;
+  color: silver;
+}
+
+h2 {
+  border-top: 5px solid gray;
+  border-radius: 20px;
+  background-color: black;
+  font-size: 20px;
+  color: silver;
+}
+
+#midpage {
+    border-top: 5px solid gray;
+    border-radius: 20px;
+    background-color: black;
+    font-size: 20px;
+    color: silver;
+    margin: 10px 40px 10px 40px;
+  }
+
+.menu {
+  float:left;
+  margin:10px
+  width: 30%;
+}
+
+a:link {
+  color:gray;
+  font-size:18px;
+  text-decoration: none;
+}
+a:visited {
+  color:gray;
+  text-decoration: bold;
+}
+
+
+#mainmenu {
+  color: black;
+  background-color: gray;
+  border: solid black;
+  border-radius: 20px;
+}
+
+#main {
+  width: 70%;
+  float:left;
+  margin:10px}
+
+.mid {
+  float:left;
+  margin:10px;
+  width: 400px;
+
+}
+footer {
+  clear: left
+}

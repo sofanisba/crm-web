@@ -1,9 +1,37 @@
 <!DOCTYPE html>
 <html>
   <head>
+    <link rel='stylesheet' type='text/css' href='/style.css'>
 <title>Tamara's CRM</title>
   </head>
   <body>
-    <%= yield %>
+    <div id="main">
+      <header>
+      <h1>This is Spinal Tap</h1>
+      <h2>(No, it's actually Tamara's CRM)</h2>
+    </header>
+
+    <nav>
+
+            <div class="menu">
+
+              <p id="mainmenu">Main Menu</p>
+              <ul>
+                <li><a href="/contacts" >View all Contacts</a></li>
+                <li><a href="/contacts/new_contact" >Add a new contact</a></li>
+                <li><a href="/contacts/show_contact" >Show a contact</a></li>
+
+              </ul>
+
+            </div>
+            <%=yield%>
+
+    </nav>
+
+    <footer>
+      Copywrite Tamara Stefanovic
+    </footer>
+</div>
+
   </body>
 </html>
