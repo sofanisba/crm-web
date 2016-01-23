@@ -1,10 +1,6 @@
 require 'sinatra'
 require_relative 'contact.rb'
 
-#TEMP id
-Contact.create('Johnny','Bravo', 'johnny@bitmakerlabs.com', 'Rockstar')
-Contact.create('Tamara','Stefanovic','stefanov.tamara@gmail.com', 'Admin')
-
 get '/' do
   @crm_app_name = "Tamara's CRM"
   erb :index
@@ -49,6 +45,16 @@ put '/contacts/:id' do
     @contact.email = params[:email]
     @contact.note = params[:note]
 
+    redirect to('/contacts')
+  else
+    raise Sinatra::NotFound
+  end
+end
+
+delete '/contacts/:id' do
+  @contact = Contact.get(params[:id].to_i)
+  if @contact
+    @contact.delete
     redirect to('/contacts')
   else
     raise Sinatra::NotFound
